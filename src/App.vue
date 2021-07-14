@@ -19,18 +19,20 @@ export default {
   },
   data(){
     return{
-       apiURL:'https://api.themoviedb.org/3/search/movie?api_key=ee7c70302b256bf9639aba651036d09e&query=matrix',
-       apiKey:'ee7c70302b256bf9639aba651036d09e',
-       language: 'it_IT',
-       arrayFilm: [],
-       searchText: ''
+      apiURLMovie:'https://api.themoviedb.org/3/search/movie?',
+      apiURLSerie:'https://api.themoviedb.org/3/search/tv?',
+      apiKey:'ee7c70302b256bf9639aba651036d09e',
+      language: 'it_IT',
+      arrayFilm: [],
+      arraySerie: [],
+      searchText: ''
     }
   },
   methods:{
     ricercaFilm(testo){
       this.searchText = testo;
       axios
-      .get(this.apiURL, {
+      .get(this.apiURLMovie, {
         params: {
           api_key: this.apiKey,
           language: this.language,
@@ -40,6 +42,22 @@ export default {
       .then(response =>  {
         console.log(response.data.results)
         this.arrayFilm = response.data.results;
+      });
+      console.log(testo);
+    },
+    ricercaSerie(testo){
+      this.searchText = testo;
+      axios
+      .get(this.apiURLSerie, {
+        params: {
+          api_key: this.apiKey,
+          language: this.language,
+          query: testo
+        }
+      })
+      .then(risposta =>  {
+        console.log(risposta.data.results)
+        this.arraySerie = risposta.data.results;
       });
       console.log(testo);
     }

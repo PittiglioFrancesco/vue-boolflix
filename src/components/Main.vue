@@ -14,6 +14,8 @@
         <div class="row">
             <h3>Serie TV: </h3>
         </div>
+
+        <Serie />
         
       </div>
       
@@ -23,12 +25,14 @@
 <script>
 
 import Film from '@/components/Film.vue'
+import Serie from '@/components/Serie.vue'
 
 export default {
 
     name: "Searchbar",
     components: {
-        Film
+        Film,
+        Serie
     },
     props: {
         films: Array,

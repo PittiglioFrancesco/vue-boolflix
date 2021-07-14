@@ -1,5 +1,5 @@
 <template>
-  <div class="film">
+  <div class="serie">
       <ul>
           <li><strong>Titolo: </strong> {{info.title}} </li>          <li><strong>Titolo: </strong> {{info.title}} </li>
           <li><strong>Titolo originale: </strong> {{info.original_title}} </li>
@@ -12,7 +12,7 @@
 <script>
 export default {
 
-    name: "Film",
+    name: "Serie",
     props: ["info"]
 
 }
