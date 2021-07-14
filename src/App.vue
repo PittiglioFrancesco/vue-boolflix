@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @ricerca="ricercaFilm"/>
-    <Main :films="arrayFilm" :campoRicerca="searchText" />
+    <Main :films="arrayFilm" :series="arraySerie" :campoRicerca="searchText" />
   </div>
 </template>
 
@@ -43,10 +43,7 @@ export default {
         console.log(response.data.results)
         this.arrayFilm = response.data.results;
       });
-      console.log(testo);
-    },
-    ricercaSerie(testo){
-      this.searchText = testo;
+
       axios
       .get(this.apiURLSerie, {
         params: {
@@ -55,10 +52,11 @@ export default {
           query: testo
         }
       })
-      .then(risposta =>  {
-        console.log(risposta.data.results)
-        this.arraySerie = risposta.data.results;
+      .then(response =>  {
+        console.log(response.data.results)
+        this.arraySerie = response.data.results;
       });
+
       console.log(testo);
     }
   }

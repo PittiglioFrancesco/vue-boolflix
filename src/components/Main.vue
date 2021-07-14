@@ -15,7 +15,8 @@
             <h3>Serie TV: </h3>
         </div>
 
-        <Serie />
+        <Film v-for="serie in series" :key="serie.id" :info="serie" />
+
         
       </div>
       
@@ -25,17 +26,16 @@
 <script>
 
 import Film from '@/components/Film.vue'
-import Serie from '@/components/Serie.vue'
 
 export default {
 
     name: "Searchbar",
     components: {
-        Film,
-        Serie
+        Film
     },
     props: {
         films: Array,
+        series: Array,
         campoRicerca: String
     }
 
