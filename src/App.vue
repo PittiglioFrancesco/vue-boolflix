@@ -9,6 +9,8 @@
 import Header from './components/Header.vue'
 import Main from './components/Main.vue'
 import axios from 'axios'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 
 
 export default {
@@ -40,7 +42,6 @@ export default {
         }
       })
       .then(response =>  {
-        console.log(response.data.results)
         this.arrayFilm = response.data.results;
       });
 
@@ -53,11 +54,9 @@ export default {
         }
       })
       .then(response =>  {
-        console.log(response.data.results)
+        // console.log(response.data.results)
         this.arraySerie = response.data.results;
       });
-
-      console.log(testo);
     }
   }
 }
